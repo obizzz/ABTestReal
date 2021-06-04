@@ -1,0 +1,22 @@
+.DateTable {
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+.TableContent {
+    min-width: 75%;
+    float: left;
+    display: block;
+}
+
+.TableManagement {
+    min-width: 20%;
+    float: left;
+    display: block;
+}
+
+.Histogram {
+    min-width: 75%;
+    float: left;
+    display: block;
+}
