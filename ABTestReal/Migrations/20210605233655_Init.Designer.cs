@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ABTestReal.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210603205440_Init")]
+    [Migration("20210605233655_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace ABTestReal.Migrations
 
             modelBuilder.Entity("ABTestReal.Models.Record", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -34,10 +34,7 @@ namespace ABTestReal.Migrations
                     b.Property<DateTime>("DateRegistration")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Records");
                 });

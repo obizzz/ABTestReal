@@ -11,7 +11,6 @@ namespace ABTestReal.Controllers
     public class RollingRetentionController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-        private IServiceProvider Provider { get; set; }
         private IRollingRetentionService RollingRetentionService { get; set; }
 
         public RollingRetentionController(ApplicationDbContext context, IRollingRetentionService rollingRetentionService)

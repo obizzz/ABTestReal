@@ -214,7 +214,7 @@ class DateTable extends Component {
 
         return (
             <div className="DateTable pt-5">
-                <div className="TableContent pb-3">
+                <div className="TableContent pb-3 mr-3">
                     <div className="card">
                         <div className="card-header">
                             Records
@@ -243,7 +243,7 @@ class DateTable extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="TableManagement ml-3 pb-3">
+                <div className="TableManagement pb-3">
                     <div className="card">
                         <div className="card-header">
                             Add new record

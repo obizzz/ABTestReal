@@ -21,7 +21,7 @@ namespace ABTestReal.Migrations
 
             modelBuilder.Entity("ABTestReal.Models.Record", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -32,10 +32,7 @@ namespace ABTestReal.Migrations
                     b.Property<DateTime>("DateRegistration")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Records");
                 });

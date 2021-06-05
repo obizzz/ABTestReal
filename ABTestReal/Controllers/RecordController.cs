@@ -30,24 +30,47 @@ namespace ABTestReal.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]List<Record> data)
         {
-            foreach (var record in _context.Records)
-            {
-                if (!data.Contains(record))
-                {
-                    _context.Records.Remove(record);
-                }
-            }
-            
             foreach (var record in data)
             {
-                if (!_context.Records.Contains(record))
+                if (record.UserId < 0)
                 {
-                    await _context.Records.AddAsync(record);
+                    ModelState.AddModelError("UserId", "UserID must be greater than or equal to 0");
+                }
+
+                if (record.DateRegistration == DateTime.MinValue)
+                {
+                    ModelState.AddModelError("DateRegistration", "DateRegistration must be non-empty");
+                }
+                
+                if (record.DateLastActivity == DateTime.MinValue)
+                {
+                    ModelState.AddModelError("DateLastActivity", "DateLastActivity must be non-empty");
                 }
             }
 
-            await _context.SaveChangesAsync();
-            return Ok(_context.Records);
+            if (ModelState.IsValid)
+            {
+                foreach (var record in _context.Records)
+                {
+                    if (!data.Contains(record))
+                    {
+                        _context.Records.Remove(record);
+                    }
+                }
+
+                foreach (var record in data)
+                {
+                    if (!_context.Records.Contains(record))
+                    {
+                        await _context.Records.AddAsync(record);
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+                return Ok(_context.Records);
+            }
+
+            return StatusCode(500);
         }
         
         [HttpDelete("{id}")]
