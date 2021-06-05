@@ -216,7 +216,7 @@ class DateTable extends Component {
             <div className="DateTable pt-5">
                 <div className="TableContent pb-3">
                     <div className="card">
-                        <div class="card-header">
+                        <div className="card-header">
                             Records
                         </div>
                         <div className="card-body">
@@ -245,27 +245,27 @@ class DateTable extends Component {
                 </div>
                 <div className="TableManagement ml-3 pb-3">
                     <div className="card">
-                        <div class="card-header">
+                        <div className="card-header">
                             Add new record
                         </div>
-                        <div class="card-body">
+                        <div className="card-body">
                             <form onSubmit={this.onSubmit}>
                                 <div className="form-group">
                                     <label>UserID:</label>
-                                    <input type="text" class="form-control" name="userId" placeholder="1, 2, 3..."
+                                    <input type="text" className="form-control" name="userId" placeholder="1, 2, 3..."
                                            value={this.state.userId} onChange={this.onChangeInput}/>
                                 </div>
                                 <div className="form-group">
                                     <label>Date Registration:</label>
-                                    <input type="date" class="form-control" name="dateRegistration"
+                                    <input type="date" className="form-control" name="dateRegistration"
                                            value={this.state.dateRegistration} onChange={this.onChangeInput}/>
                                 </div>
                                 <div className="form-group">
                                     <label>Date Last Activity</label>
-                                    <input type="date" class="form-control" name="dateLastActivity"
+                                    <input type="date" className="form-control" name="dateLastActivity"
                                            value={this.state.dateLastActivity} onChange={this.onChangeInput}/>
                                 </div>
-                                <input type="submit" class="btn btn-primary" value="Add"/>
+                                <input type="submit" className="btn btn-primary" value="Add"/>
                             </form>
                         </div>
                     </div>
