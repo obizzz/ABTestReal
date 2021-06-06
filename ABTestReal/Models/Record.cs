@@ -15,5 +15,24 @@ namespace ABTestReal.Models
         
         [Required(ErrorMessage ="Set last activity date")]
         public DateTime DateLastActivity { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var record = obj as Record;
+
+            if (record == null)
+            {
+                return false;
+            }
+
+            return this.UserId == record.UserId &&
+                   this.DateRegistration == record.DateRegistration &&
+                   this.DateLastActivity == record.DateLastActivity;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
